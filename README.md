@@ -689,10 +689,10 @@ SI886-S13-TALLER-Grupo8/
 git clone https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8.git
 cd SI886-S13-TALLER-Grupo8
 pip install -r requirements.txt
+```
 
 
-
-## 8. Glosario de Siglas
+ ## 8. Glosario de Siglas
 
 | Sigla | Significado |
 |---|---|
