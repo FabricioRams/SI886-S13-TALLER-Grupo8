@@ -160,3 +160,4 @@ graph_path = os.path.join(out_dir, "PF_auditoria_pagos_ti.png")
 plt.savefig(graph_path, dpi=160)
 plt.close()
 print(f"\n✔ Gráfico {graph_path} generado exitosamente.")
+

@@ -148,3 +148,4 @@ plt.close()
 
 print(f"\n✔ Gráfico {graph_path} generado exitosamente.")
 print("✔ Archivo PF10_priorizacion_scoring.csv generado exitosamente.")
+
