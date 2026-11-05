@@ -37,3 +37,4 @@ for p, g in ALT.groupby("proyecto"):
 
 ALT.to_csv("PF04_alternativas.csv", index=False)
 print("\n✔ Archivo PF04_alternativas.csv generado exitosamente.")
+

@@ -76,3 +76,4 @@ plt.axis('off')
 plt.tight_layout()
 plt.savefig("../graficos/PF_dependencias.png", dpi=160)
 print("✔ Gráfico ../graficos/PF_dependencias.png generado con éxito.")
+

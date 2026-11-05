@@ -54,3 +54,4 @@ plt.tight_layout()
 plt.savefig("../graficos/PF_roadmap_ejecucion.png", dpi=160)
 plt.close()
 print("✔ Gráfico ../graficos/PF_roadmap_ejecucion.png generado.")
+

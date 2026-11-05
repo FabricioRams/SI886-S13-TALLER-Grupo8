@@ -443,3 +443,4 @@ A continuación, se presenta la verificación detallada de los resultados espera
 - **Gartner Inc. (2023).** *IT Budgeting and Benchmarking: Run, Grow and Transform Metrics in Public Utilities*. Gartner Research.
 - **Project Management Institute - PMI (2021).** *The Standard for Portfolio Management – Fourth Edition*. Project Management Institute, Inc.
 - **NetworkX Developers (2024).** *NetworkX: Network Analysis in Python — Directed Acyclic Graphs and Topological Sorting*. https://networkx.org/
+

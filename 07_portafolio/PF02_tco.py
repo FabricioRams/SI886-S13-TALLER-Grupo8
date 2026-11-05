@@ -49,3 +49,4 @@ print("  inicial ante la gerencia subestima el compromiso en S/ {:,.0f}.".format
 print("\n=== PROYECTOS CON MAYOR PROPORCIÓN DE COSTO OPERATIVO ===")
 print(P.nlargest(5,"pct_operativo")[["codigo","tco_5","pct_operativo"]].to_string(index=False))
 print("→ Estos comprometen el presupuesto recurrente durante años: exigen mayor escrutinio.")
+

@@ -61,3 +61,4 @@ for bar in bars:
 plt.tight_layout()
 plt.savefig("../graficos/PF_balance.png", dpi=160)
 print("✔ Gráfico ../graficos/PF_balance.png generado con éxito.")
+

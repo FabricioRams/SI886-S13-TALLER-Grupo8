@@ -142,3 +142,4 @@ plt.tight_layout()
 plt.savefig("../graficos/PF_presupuesto_balance.png", dpi=160)
 plt.close()
 print("✔ Gráfico ../graficos/PF_presupuesto_balance.png generado.")
+

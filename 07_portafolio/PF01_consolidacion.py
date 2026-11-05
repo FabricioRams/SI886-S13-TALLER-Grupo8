@@ -40,3 +40,4 @@ print("\n=== COBERTURA DE OBJETIVOS ESTRATÉGICOS (OD) ===")
 obj = p.objetivo.str.split(", ").explode().value_counts()
 print(obj.to_string())
 print("→ Todo objetivo estratégico debe tener al menos un proyecto asignado.")
+
