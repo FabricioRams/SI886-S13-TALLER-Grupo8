@@ -366,6 +366,31 @@ Proyecto PR-09
 
 ---
 
+
+#### Análisis de Impacto en Desarrollo Sostenible — PR-09 y PR-04
+
+**PR-09 — Continuidad y respaldo inmutable**
+
+| Dimensión | A quién afecta | Efecto esperado (cifra/indicador) | ¿Norma o derecho aplicable? |
+|---|---|---|---|
+| **Sociedad** | 86 000 conexiones de agua potable | Evita parálisis del servicio (0 días de interrupción vs. -180 000/año de multas) | Ley de Recursos Hídricos |
+| **Economía** | Finanzas EPS | Evita pérdida de S/ 180 000 anuales por inacción | — |
+| **Salud y seguridad** | Usuarios regulados | Continuidad de agua potable (derecho básico) | D.S. 029-2021-PCM |
+| **Marco legal** | SUNASS | Cumplimiento de continuidad regulatoria | Reglamento SUNASS |
+| **Medio ambiente** | No aplica | Se declara: no tiene efecto ambiental directo | — |
+
+**PR-04 — Canal Digital y Recaudación**
+
+| Dimensión | A quién afecta | Efecto esperado (cifra/indicador) | ¿Norma o derecho aplicable? |
+|---|---|---|---|
+| **Sociedad** | 86 000 usuarios + 1 200 vecinos/año en trámites | Reduce de 12 a 5 días el trámite y evita 2 traslados presenciales | Ley de Simplificación Administrativa |
+| **Economía** | EPS | Recupera S/ 725 000 en 5 años vía recaudación digital | — |
+| **Salud y seguridad** | Usuarios | Reduce riesgo sanitario por aglomeración en ventanillas | — |
+| **Marco legal** | SUNASS, LPDP | Cumple Decreto Legislativo 1412 (Gobierno Digital) | D.L. 1412, D.S. 029-2021 |
+| **Medio ambiente** | Comunidad | Reduce ~30% consumo de papel en recibos y comprobantes | Política ambiental interna |
+
+
+
 ### Paso D — Balance Estratégico del Portafolio (Operar / Crecer / Transformar)
 
 Mediante el script [`07_portafolio/PF05_balance.py`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/PF05_balance.py), se evaluó el cambio en la composición del gasto tecnológico entre la situación actual de la EPS y la cartera quinquenal propuesta.
