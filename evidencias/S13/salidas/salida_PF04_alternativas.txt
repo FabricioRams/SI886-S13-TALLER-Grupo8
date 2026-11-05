@@ -1,20 +1,20 @@
-﻿
-===============================================================================================
-Proyecto PR-04
-                                          alternativa  inv_inicial  costo_5  beneficio_5  neto_5  retorno
-                                     A. No hacer nada            0        0      -475000 -475000      NaN
-B. Rediseño web/móvil con pasarela y arquitectura API        92000   380000       725000  345000     90.8
-C. Nueva plataforma comercial paquetizada de terceros       210000   630000       875000  245000     38.9
-→ Mayor beneficio neto a 5 años: B. Rediseño web/móvil con pasarela y arquitectura API (S/ 345,000)
-→ Costo de la inacción a 5 años: S/ 475,000
-
-===============================================================================================
-Proyecto PR-09
-                                               alternativa  inv_inicial  costo_5  beneficio_5  neto_5  retorno
-                                          A. No hacer nada            0        0      -900000 -900000      NaN
-      B. Migrar a la versión soportada del mismo proveedor       145000   565000       300000 -265000    -46.9
-C. Reemplazar por otra solución (Nube híbrida e inmutable)       240000   720000       600000 -120000    -16.7
-→ Mayor beneficio neto a 5 años: C. Reemplazar por otra solución (Nube híbrida e inmutable) (S/ -120,000)
-→ Costo de la inacción a 5 años: S/ 900,000
-
-✔ Archivo PF04_alternativas.csv generado exitosamente.
+
+===============================================================================================
+Proyecto PR-04
+                                          alternativa  inv_inicial  costo_5  beneficio_5  neto_5  retorno
+                                     A. No hacer nada            0        0      -475000 -475000      NaN
+B. Rediseño web/móvil con pasarela y arquitectura API        92000   380000       725000  345000     90.8
+C. Nueva plataforma comercial paquetizada de terceros       210000   630000       875000  245000     38.9
+→ Mayor beneficio neto a 5 años: B. Rediseño web/móvil con pasarela y arquitectura API (S/ 345,000)
+→ Costo de la inacción a 5 años: S/ 475,000
+
+===============================================================================================
+Proyecto PR-09
+                                               alternativa  inv_inicial  costo_5  beneficio_5  neto_5  retorno
+                                          A. No hacer nada            0        0      -900000 -900000      NaN
+      B. Migrar a la versión soportada del mismo proveedor       145000   565000       300000 -265000    -46.9
+C. Reemplazar por otra solución (Nube híbrida e inmutable)       240000   720000       600000 -120000    -16.7
+→ Mayor beneficio neto a 5 años: C. Reemplazar por otra solución (Nube híbrida e inmutable) (S/ -120,000)
+→ Costo de la inacción a 5 años: S/ 900,000
+
+✔ Archivo PF04_alternativas.csv generado exitosamente.

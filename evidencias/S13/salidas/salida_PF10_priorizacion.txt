@@ -1,0 +1,46 @@
+===============================================================================================
+MODELO MULTICRITERIO DE PRIORIZACIÓN DE INVERSIONES DE TI (VAL IT / COBIT 2019 APO05)
+EPS AGUAS DEL SUR S.A. — RANKING DE ASIGNACIÓN DE RECURSOS Y SELECCIÓN ESTRATÉGICA
+===============================================================================================
+ ranking codigo                                                    nombre   categoria  score_total                                         cuadrante
+       1  PR-03                          Capa de integración de servicios Transformar         91.0 Q1: Misión Crítica (Cimientos Transformacionales)
+       2  PR-01                                 Gobierno del dato maestro Transformar         89.5 Q1: Misión Crítica (Cimientos Transformacionales)
+       3  PR-04   Rediseño y adopción del canal digital B2B / Recaudación      Crecer         88.5   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       4  PR-09       Continuidad de infraestructura y respaldo inmutable      Operar         85.0   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       5  PR-13         Comité de gobierno de TI y transformación digital      Operar         81.2   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       6  PR-02                    Registro de actividades de tratamiento      Operar         80.8   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       7  PR-11       Programa de cumplimiento de datos personales (LPDP)      Operar         80.5   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       8  PR-05   Consulta de estado de reclamo y trámite en autoservicio      Crecer         80.0   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       9  PR-08                                    Mesa de servicio de TI      Operar         79.5                  Q4: Mejoras Graduales de Soporte
+      10  PR-07                Tablero de gestión comercial y operacional      Crecer         75.0                  Q4: Mejoras Graduales de Soporte
+      11  PR-06              Planificación de rutas de cuadrillas y SCADA      Crecer         75.0                  Q4: Mejoras Graduales de Soporte
+      12  PR-10 Renovación de la plataforma comercial y operacional (ERP)      Operar         72.5                  Q4: Mejoras Graduales de Soporte
+      13  PR-14  Instrumentación de monitoreo y disponibilidad de enlaces      Operar         71.0                  Q4: Mejoras Graduales de Soporte
+      14  PR-12     Gestión del conocimiento y de la configuración (CMDB)      Operar         68.2                  Q4: Mejoras Graduales de Soporte
+      15  PR-15       Autoservicio de trabajadores (boletas y vacaciones)      Crecer         68.0                  Q4: Mejoras Graduales de Soporte
+
+--- DISTRIBUCIÓN POR CUADRANTES ESTRATÉGICOS ---
+
+[Q1: Misión Crítica (Cimientos Transformacionales)] (2 iniciativas):
+  • PR-03 - Capa de integración de servicios (Score: 91.0 | TCO: S/ 459,200)
+  • PR-01 - Gobierno del dato maestro (Score: 89.5 | TCO: S/ 290,250)
+
+[Q2: Quick Wins (Alto Impacto / Rápida Adopción)] (6 iniciativas):
+  • PR-04 - Rediseño y adopción del canal digital B2B / Recaudación (Score: 88.5 | TCO: S/ 425,000)
+  • PR-09 - Continuidad de infraestructura y respaldo inmutable (Score: 85.0 | TCO: S/ 780,500)
+  • PR-13 - Comité de gobierno de TI y transformación digital (Score: 81.2 | TCO: S/ 135,500)
+  • PR-02 - Registro de actividades de tratamiento (Score: 80.8 | TCO: S/ 75,000)
+  • PR-11 - Programa de cumplimiento de datos personales (LPDP) (Score: 80.5 | TCO: S/ 23,000)
+  • PR-05 - Consulta de estado de reclamo y trámite en autoservicio (Score: 80.0 | TCO: S/ 179,500)
+
+[Q4: Mejoras Graduales de Soporte] (7 iniciativas):
+  • PR-08 - Mesa de servicio de TI (Score: 79.5 | TCO: S/ 161,200)
+  • PR-07 - Tablero de gestión comercial y operacional (Score: 75.0 | TCO: S/ 66,500)
+  • PR-06 - Planificación de rutas de cuadrillas y SCADA (Score: 75.0 | TCO: S/ 154,000)
+  • PR-10 - Renovación de la plataforma comercial y operacional (ERP) (Score: 72.5 | TCO: S/ 129,000)
+  • PR-14 - Instrumentación de monitoreo y disponibilidad de enlaces (Score: 71.0 | TCO: S/ 85,400)
+  • PR-12 - Gestión del conocimiento y de la configuración (CMDB) (Score: 68.2 | TCO: S/ 85,400)
+  • PR-15 - Autoservicio de trabajadores (boletas y vacaciones) (Score: 68.0 | TCO: S/ 144,000)
+
+✔ Gráfico ../graficos\PF_matriz_priorizacion.png generado exitosamente.
+✔ Archivo PF10_priorizacion_scoring.csv generado exitosamente.

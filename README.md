@@ -23,11 +23,12 @@ EMPRESA 08 — **EPS AGUAS DEL SUR S.A.**
 *(Servicio Público de Agua Potable y Alcantarillado)*
 
 **INTEGRANTE / EQUIPO DE TRABAJO (GRUPO 08):**  
-Ramos Fabricio · Código Estudiantil: 2023076798
-
-Pacompía Abel · Código Estudiantil: 2023076797
-
-Colque Rodrigo · Código Estudiantil: 2023077078
+- **Ramos Fabricio** · Código Estudiantil: 2023076798  
+  *Responsabilidad:* Consolidación de iniciativas candidatas, formulación matricial base del TCO y análisis de dependencias topológicas en NetworkX.
+- **Colque Rodrigo** · Código Estudiantil: 2023077078  
+  *Responsabilidad:* Auditoría forense transaccional de pagos (`pagos.csv`), análisis estocástico de riesgo por Monte Carlo, modelo multicriterio de priorización y suite automatizada de validación (`run_all.py`).
+- **Pacompía Abel** · Código Estudiantil: 2023076797  
+  *Responsabilidad:* Formulación de casos de negocio y alternativas Val IT, balance estratégico de gasto y redacción normativa del marco de gobernanza PETI.
 
 **ENLACE AL REPOSITORIO DE GITHUB:**  
 [https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8)
@@ -65,13 +66,17 @@ Noviembre 2026
 
 ```mermaid
 flowchart LR
-    PA["<b>Paso A</b><br/>Consolidación y<br/>Control de Admisión"] --> PB["<b>Paso B</b><br/>Estimación de<br/>TCO a 5 Años"]
-    PB --> PC["<b>Paso C</b><br/>Casos de Negocio<br/>y Alternativas (Val IT)"]
+    PA["<b>Paso A</b><br/>Consolidación y<br/>Control de Admisión"] --> PB["<b>Paso B</b><br/>TCO 5 Años y<br/>Auditoría Pagos"]
+    PB --> PB2["<b>Estocástico</b><br/>Monte Carlo y<br/>Reserva P90"]
+    PB2 --> PC["<b>Paso C</b><br/>Casos de Negocio<br/>y Alternativas (Val IT)"]
     PC --> PD["<b>Paso D</b><br/>Balance del Portafolio<br/>(Operar/Crecer/Transf.)"]
     PD --> PE["<b>Paso E</b><br/>Dependencias y Orden<br/>Topológico (NetworkX)"]
-    PE --> PF["<b>Paso F</b><br/>Redacción de la<br/>Sección 7.1 del PETI"]
+    PE --> PE2["<b>Priorización</b><br/>Scoring Multicriterio<br/>y Matriz 2x2"]
+    PE2 --> PF["<b>Paso F</b><br/>Redacción de la<br/>Sección 7.1 del PETI"]
     classDef step fill:#E0F2FE,stroke:#0369A1,stroke-width:2px,color:#0C4A6E;
+    classDef step_new fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#78350F;
     class PA,PB,PC,PD,PE,PF step;
+    class PB2,PE2 step_new;
 ```
 
 ---
@@ -221,6 +226,92 @@ codigo    tco_5  pct_operativo
 
 ---
 
+### Paso B.1 — Auditoría Forense de la Población Transaccional de Pagos (`pagos.csv`) y Validación de Capacidad
+
+Para verificar empíricamente si la entidad cuenta con la solvencia operativa necesaria para absorber el gasto recurrente anual del portafolio (S/ 462 490/año), se desarrolló el programa [`07_portafolio/PF03_auditoria_pagos.py`](07_portafolio/PF03_auditoria_pagos.py), auditando la población íntegra de 19 281 comprobantes de pago de la empresa (`Recursos/pagos.csv`).
+
+#### Hallazgos Clave de Auditoría Contable y Financiera:
+1. **Volumen Real de Desembolso en TI (2025):** Se identificaron **1 556 transacciones de "Servicio informático" por un total de S/ 2 354 579.60** (8.16 % del gasto corporativo global de S/ 28.84 millones), con un promedio de S/ 1 513.23 y mediana de S/ 588.26 por comprobante.
+2. **Estacionalidad Mensual:** El gasto mensual promedio en tecnología se sitúa en **S/ 196 214.97/mes**, con picos en mayo–junio (S/ 226k–S/ 255k) y un pico máximo en diciembre de **S/ 337 347.99** generado por la liquidación de servicios anuales.
+3. **Concentración de Proveedores (Pareto):** De los 156 proveedores informáticos contratados, los 10 primeros absorben el 23.7 % del gasto, destacando el proveedor **PRV0126 con S/ 161 221.36 (6.8 %)**.
+4. **Evidencia Contundente de Shadow IT (TI Disperso):** El 45.1 % de las transacciones (702 pagos) corresponden a montos menores o iguales a S/ 500 (compras menores directas). Al contrastar el gasto real en proveedores informáticos (**S/ 2 354 579.60**) frente al presupuesto formal ejecutado de la Oficina de TI en `presupuesto_ti.csv` (**S/ 863 629.34**), se descubre una **dispersión de Shadow IT de S/ 1 490 950.26 (+172.6 %)** contratada directamente por gerencias de línea sin gobierno centralizado.
+5. **Comprobación de Factibilidad del TCO:** Al comparar el gasto histórico comprobado en servicios de TI (S/ 2.35 millones/año) contra el compromiso recurrente del nuevo portafolio (S/ 462 490/año), se confirma un **ratio de cobertura de 5.09×**. El portafolio no genera presiones presupuestales adicionales, sino que consolida y formaliza contratos que hoy están atomizados.
+
+![Figura 3.1](graficos/PF_auditoria_pagos_ti.png)  
+**Figura 3.1: Auditoría forense transaccional de pagos de TI: Estacionalidad mensual, curva de Pareto de proveedores, fragmentación por importe y validación de cobertura frente al TCO propuesto.**
+
+```text
+=====================================================================================
+AUDITORÍA FORENSE DE LA POBLACIÓN DE PAGOS INSTITUCIONALES (EPS AGUAS DEL SUR S.A.)
+=====================================================================================
+Total transacciones procesadas (pagos.csv): 19,281 pagos
+Desembolso total institucional del período : S/ 28,844,991.52
+Pagos en 'Servicio informático'           : 1,556 pagos (8.1 % del volumen)
+Monto total ejecutado en servicios TI     : S/ 2,354,579.60 (8.16 % del gasto empresarial)
+Promedio por comprobante informático      : S/ 1,513.23 | Mediana: S/ 588.26
+
+--- CONCENTRACIÓN POR PROVEEDORES DE TI (156 proveedores únicos) ---
+  Top 10 proveedores concentran el 23.7 % del gasto (Líder: PRV0126 con S/ 161,221.36)
+
+--- ANÁLISIS DE FRAGMENTACIÓN Y GOBERNANZA PRESUPUESTAL ---
+Pagos <= S/ 500 (compras menores/directas) : 702 (45.1 % de transacciones)
+Presupuesto ejecutado formal de TI (presupuesto_ti.csv): S/ 863,629.34
+Gasto real en 'Servicio informático' (pagos.csv)      : S/ 2,354,579.60
+Diferencia (Gasto de TI disperso / Shadow IT)          : S/ 1,490,950.26 (+172.6 %)
+
+--- VALIDACIÓN EMPÍRICA DE SOSTENIBILIDAD DEL TCO DEL PETI ---
+Costo recurrente anual proyectado por el nuevo portafolio : S/ 462,490.00 / año
+Capacidad anual histórica demostrada en pagos de TI (2025) : S/ 2,354,579.60 / año
+Ratio de cobertura (Capacidad histórica / Opex PETI)      : 5.09×
+✔ Conclusión de auditoría: El portafolio del PETI no sobrecarga financieramente a la EPS.
+```
+**Figura 3.2: Log de ejecución de `07_portafolio/PF03_auditoria_pagos.py` archivado en `evidencias/S13/salidas/salida_PF03_auditoria_pagos.txt`.**
+
+---
+
+### Paso B.2 — Evaluación Estocástica de Incertidumbre y Simulación Monte Carlo del TCO
+
+Para evitar que el portafolio caiga en las desviaciones presupuestales del pasado (+47.5% en inversiones históricas), se implementó el modelo estocástico [`07_portafolio/PF09_sensibilidad_montecarlo.py`](07_portafolio/PF09_sensibilidad_montecarlo.py), simulando 10 000 escenarios con distribuciones triangulares a partir de los márgenes de incertidumbre de cada iniciativa (±15 % a ±50 %).
+
+#### Resultados de la Simulación Estocástica:
+- **TCO Base Determinístico:** S/ 3 193 450.00.
+- **TCO Medio Simulado (Valor Esperado):** S/ 3 191 118.99 (Desviación estándar: S/ 191 589.03; Coeficiente de variación: 6.00 %).
+- **Percentil 90 (Techo de Autorización con 90% de Confianza):** **S/ 3 438 289.40 (+7.7 %)**.
+- **Percentil 95 (Valor en Riesgo - VaR 95%):** S/ 3 513 044.16 (+10.0 %).
+- **Reserva de Contingencia Financiera Sugerida (P90 - Base):** **S/ 244 839.40 (7.67 % del TCO base)**.
+- **Análisis de Tornado (Sensibilidad de Riesgo):** El análisis de descomposición de varianza demostró que dos proyectos concentran el **82.0 % de todo el riesgo presupuestal**:
+  - **PR-09 (Continuidad y Respaldo Inmutable):** Aporta el **66.9 % de la varianza total** (margen ±50 %, oscilación de S/ 390.2k a S/ 1 170.7k).
+  - **PR-03 (Capa de Integración de Servicios):** Aporta el **15.1 % de la varianza** (margen ±40 %, oscilación de S/ 275.5k a S/ 642.9k).
+
+![Figura 3.3](graficos/PF_sensibilidad_montecarlo.png)  
+**Figura 3.3: Evaluación estocástica de incertidumbre del TCO: Histograma de Monte Carlo con percentiles P50/P90 y Reserva de Contingencia, junto al Diagrama de Tornado de proyectos generadores de riesgo.**
+
+```text
+==========================================================================================
+SIMULACIÓN MONTE CARLO Y ANÁLISIS DE SENSIBILIDAD DEL TCO (10 000 ITERACIONES)
+EPS AGUAS DEL SUR S.A. — MARGEN DE CONFIANZA FINANCIERA BAJO VAL IT / COBIT 2019
+==========================================================================================
+TCO Base Determinístico del Portafolio : S/ 3,193,450.00
+TCO Medio Simulado (Valor Esperado)     : S/ 3,191,118.99
+Desviación Estándar del Portafolio     : S/ 191,589.03
+Coeficiente de Variación (CV)          : 6.00 %
+
+--- DISTRIBUCIÓN POR PERCENTILES DEL COMPROMISO QUINQUENAL ---
+  P05 (Escenario Altamente Optimista)   : S/ 2,877,276.66 (-9.9 %)
+  P50 (Mediana / Escenario Central)     : S/ 3,190,160.81 (-0.1 %)
+  P90 (Techo de Autorización / 90% Conf): S/ 3,438,289.40 (+7.7 %)
+  P95 (Valor en Riesgo - VaR 95%)       : S/ 3,513,044.16 (+10.0 %)
+
+--- RECOMENDACIÓN DE GOBERNANZA PRESUPUESTAL (RESERVA DE CONTINGENCIA) ---
+Reserva de Contingencia Financiera sugerida (P90 - Base): S/ 244,839.40 (7.67 % del TCO base)
+→ Dictamen: Se recomienda aprobar un techo quinquenal blindado de S/ 3,438,289 con una reserva de S/ 244,839.
+
+Concentración de volatilidad: PR-09 (66.9 %) y PR-03 (15.1 %) explican el 82.0 % del riesgo.
+```
+**Figura 3.4: Log de ejecución de `07_portafolio/PF09_sensibilidad_montecarlo.py` archivado en `evidencias/S13/salidas/salida_PF09_sensibilidad_montecarlo.txt`.**
+
+---
+
 ### Paso C — Casos de Negocio, Evaluación de Alternativas y Análisis Histórico
 
 #### Análisis Forense de Inversiones Históricas Cerradas (`expedientes-de-inversion.md`):
@@ -365,6 +456,61 @@ PR-01 → PR-02 → PR-03 → PR-08 → PR-10 → PR-11 → PR-12 → PR-13 → 
 
 ---
 
+### Paso E.1 — Modelo Multicriterio de Priorización y Matriz Estratégica de Portafolio (Val IT / COBIT APO05)
+
+Para establecer un orden racional de asignación presupuestal ante escenarios de restricción fiscal o desfase de contratación, se implementó el modelo multicriterio [`07_portafolio/PF10_priorizacion_scoring.py`](07_portafolio/PF10_priorizacion_scoring.py). 
+
+Cada una de las 15 iniciativas fue evaluada considerando cuatro dimensiones ponderadas:
+- **Alineamiento Estratégico (ODs)** (30 %): Contribución a los objetivos institucionales de la EPS.
+- **Urgencia Normativa y Mitigación de Costo de Inacción** (25 %): Penalidades SUNASS/LPDP y pérdidas operativas por no actuar.
+- **Criticidad Arquitectural y Capacidad Habilitadora** (25 %): Número de dependencias y centralidad de red en NetworkX.
+- **Eficiencia Financiera y Retorno del TCO** (20 %): Facilidad de despliegue, retorno económico (ROI) y bajo Capex relativo.
+
+#### Tabla 4.1: Ranking Multicriterio y Asignación por Cuadrantes Estratégicos
+
+| Ranking | Código | Nombre del Proyecto | Categoría | Score Total | Cuadrante Estratégico | Decisión Directiva |
+|:---:|:---:|:---|:---:|:---:|:---|:---|
+| **1** | **PR-03** | Capa de integración de servicios (APIs) | Transformar | **91.0** | Q1: Misión Crítica | Prioridad estructural #1. Habilita 4 proyectos |
+| **2** | **PR-01** | Gobierno del dato maestro | Transformar | **89.5** | Q1: Misión Crítica | Prioridad estructural #2. Habilita 3 proyectos |
+| **3** | **PR-04** | Rediseño canal digital B2B y recaudación | Crecer | **88.5** | Q2: Quick Wins | Máximo ROI (+90.8%) y descongestión de ventanilla |
+| **4** | **PR-09** | Continuidad y respaldo inmutable | Operar | **85.0** | Q2: Quick Wins | Mitiga riesgo crítico de S/ 900k en inacción |
+| **5** | **PR-13** | Comité de gobierno de TI | Operar | **81.2** | Q2: Quick Wins | Órgano de control para evitar sobrecostos (+47.5%) |
+| **6** | **PR-02** | Registro de actividades de tratamiento | Operar | **80.8** | Q2: Quick Wins | Cumplimiento perentorio de fiscalización LPDP |
+| **7** | **PR-11** | Programa de cumplimiento LPDP | Operar | **80.5** | Q2: Quick Wins | Blindaje regulatorio con mínima inversión (S/ 23k) |
+| **8** | **PR-05** | Autoservicio de reclamos y trámites | Crecer | **80.0** | Q2: Quick Wins | Mitiga multas SUNASS y despresuriza reclamos |
+| **9** | **PR-08** | Mesa de servicio de TI | Operar | **79.5** | Q4: Mejoras Graduales | Habilita instrumentación y soporte técnico |
+| **10** | **PR-07** | Tablero de gestión comercial | Crecer | **75.0** | Q4: Mejoras Graduales | Analítica gerencial tras consolidar PR-01 y PR-03 |
+| **11** | **PR-06** | Planificación rutas cuadrillas y SCADA | Crecer | **75.0** | Q4: Mejoras Graduales | Despliegue en Fase 2 tras unificar catastro |
+| **12** | **PR-10** | Renovación ERP comercial/operacional | Operar | **72.5** | Q4: Mejoras Graduales | Modernización por fases para no detener cobranza |
+| **13** | **PR-14** | Instrumentación de monitoreo | Operar | **71.0** | Q4: Mejoras Graduales | Dependiente de PR-08 |
+| **14** | **PR-12** | Gestión del conocimiento (CMDB) | Operar | **68.2** | Q4: Mejoras Graduales | Higiene operativa y gobierno de configuración |
+| **15** | **PR-15** | Autoservicio de trabajadores | Crecer | **68.0** | Q4: Mejoras Graduales | Digitalización interna de RRHH |
+
+![Figura 12.1](graficos/PF_matriz_priorizacion.png)  
+**Figura 12.1: Matriz Estratégica de Portafolio: Valor Estratégico vs. Complejidad Arquitectural (El tamaño de cada burbuja representa la magnitud de su TCO a 5 años; código de color por horizonte Operar/Crecer/Transformar).**
+
+```text
+===============================================================================================
+MODELO MULTICRITERIO DE PRIORIZACIÓN DE INVERSIONES DE TI (VAL IT / COBIT 2019 APO05)
+EPS AGUAS DEL SUR S.A. — RANKING DE ASIGNACIÓN DE RECURSOS Y SELECCIÓN ESTRATÉGICA
+===============================================================================================
+ ranking codigo                                                    nombre   categoria  score_total                                         cuadrante
+       1  PR-03                          Capa de integración de servicios Transformar         91.0 Q1: Misión Crítica (Cimientos Transformacionales)
+       2  PR-01                                 Gobierno del dato maestro Transformar         89.5 Q1: Misión Crítica (Cimientos Transformacionales)
+       3  PR-04   Rediseño y adopción del canal digital B2B / Recaudación      Crecer         88.5   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       4  PR-09       Continuidad de infraestructura y respaldo inmutable      Operar         85.0   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       5  PR-13         Comité de gobierno de TI y transformación digital      Operar         81.2   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       6  PR-02                    Registro de actividades de tratamiento      Operar         80.8   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       7  PR-11       Programa de cumplimiento de datos personales (LPDP)      Operar         80.5   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+       8  PR-05   Consulta de estado de reclamo y trámite en autoservicio      Crecer         80.0   Q2: Quick Wins (Alto Impacto / Rápida Adopción)
+
+✔ Gráfico ../graficos/PF_matriz_priorizacion.png generado exitosamente.
+✔ Archivo PF10_priorizacion_scoring.csv exportado con éxito.
+```
+**Figura 12.2: Log de ejecución de `07_portafolio/PF10_priorizacion_scoring.py` archivado en `evidencias/S13/salidas/salida_PF10_priorizacion.txt`.**
+
+---
+
 ### Paso F — Redacción de la Sección 7.1 del PETI
 
 Se redactó de forma exhaustiva el documento normativo [`07_portafolio/7.1_portafolio_proyectos.md`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/7.1_portafolio_proyectos.md), estructurado en 7 subsecciones formales:
@@ -425,6 +571,10 @@ A continuación, se presenta la verificación detallada de los resultados espera
 | **12** | Hoja de ruta (Roadmap) y cronograma de ejecución temporal por fases | **Logrado** | Imagen generada en [`graficos/PF_roadmap_ejecucion.png`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/graficos/PF_roadmap_ejecucion.png) (Figura 11) |
 | **13** | Redacción formal de la Sección 7.1 del PETI con sus siete subsecciones | **Logrado** | Documento normativo formal en [`07_portafolio/7.1_portafolio_proyectos.md`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/7.1_portafolio_proyectos.md) |
 | **14** | Versionamiento y etiquetado en Git (`v0.13` y `taller-13`) | **Logrado** | Commits y tags registrados localmente y vinculados al repositorio remoto de GitHub |
+| **15** | Auditoría forense transaccional de pagos (`pagos.csv`), detección de Shadow IT y validación de solvencia | **Logrado** | Procesamiento de 19 281 transacciones (1 556 de TI por S/ 2.35M, cobertura 5.09×) en [`07_portafolio/PF03_auditoria_pagos.py`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/PF03_auditoria_pagos.py), [`salida_PF03_auditoria_pagos.txt`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/evidencias/S13/salidas/salida_PF03_auditoria_pagos.txt) y [`graficos/PF_auditoria_pagos_ti.png`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/graficos/PF_auditoria_pagos_ti.png) |
+| **16** | Simulación estocástica Monte Carlo (10 000 runs) y cálculo de Reserva de Contingencia P90 | **Logrado** | Techo P90 en S/ 3.44M, reserva de S/ 244.8k (7.67%) y Tornado en [`07_portafolio/PF09_sensibilidad_montecarlo.py`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/PF09_sensibilidad_montecarlo.py), [`salida_PF09_sensibilidad_montecarlo.txt`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/evidencias/S13/salidas/salida_PF09_sensibilidad_montecarlo.txt) y [`graficos/PF_sensibilidad_montecarlo.png`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/graficos/PF_sensibilidad_montecarlo.png) |
+| **17** | Modelo multicriterio de priorización y matriz estratégica 2×2 (Val IT / COBIT APO05) | **Logrado** | Scoring ponderado y 4 cuadrantes en [`07_portafolio/PF10_priorizacion_scoring.py`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/07_portafolio/PF10_priorizacion_scoring.py), [`salida_PF10_priorizacion.txt`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/evidencias/S13/salidas/salida_PF10_priorizacion.txt) y [`graficos/PF_matriz_priorizacion.png`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/graficos/PF_matriz_priorizacion.png) |
+| **18** | Suite integral de automatización y validación de artefactos analíticos (10/10) | **Logrado** | Orquestador ejecutable [`run_all.py`](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8/blob/main/run_all.py) verificando 10 scripts y 10 gráficos vectoriales |
 
 ---
 
@@ -434,6 +584,8 @@ A continuación, se presenta la verificación detallada de los resultados espera
 2. **El Valor Estratégico de Cuantificar el Costo de la Inacción:** La evaluación de alternativas bajo Val IT demostró que la alternativa de "No hacer nada" dista de tener costo cero: representa un impacto destructivo de -S/ 900 000 en continuidad operativa (PR-09) y -S/ 475 000 en ineficiencias de ventanilla física (PR-04). Al incorporar el costo de la inacción, proyectos con retornos contables aparentemente negativos se revelan como salvaguardas económicas indispensables.
 3. **La Deuda Técnica Exige una Sobre-inversión Transitoria en Transformación:** El balance del portafolio (Operar 46.2%, Crecer 30.3% y Transformar 23.5%) desmantela el modelo reactivo de la EPS (que ahogaba el 91.1% del presupuesto en rutina). La asignación transitoria del 23.5% a Transformar (por encima del 10–20% referencial) no es un desvío injustificado, sino la inversión forzosa para construir los cimientos que habilitan al resto de proyectos: el Gobierno del Dato Maestro (PR-01) y la Capa de Integración de Servicios (PR-03).
 4. **Prioridad Estructural Derivada de la Teoría de Grafos:** El análisis topológico demostró que el portafolio posee dos super habilitadores críticos: PR-03 (habilita a 4 proyectos) y PR-01 (habilita a 3 proyectos). Cualquier intento de la Gerencia Comercial de adelantar el portal de autoservicio o las aplicaciones móviles sin haber culminado la capa de APIs colapsará operativamente. La secuencia topológica no es opcional: es la restricción matemática que garantiza el éxito del PETI.
+5. **La Telemetría de Pagos Desenmascara el Shadow IT y Demuestra Solvencia:** El análisis forense de 19 281 comprobantes transaccionales (`pagos.csv`) evidenció que la empresa gasta S/ 2.35 millones al año en servicios informáticos, superando en +172.6% al presupuesto formal centralizado de TI (S/ 863k). Esto demuestra que las áreas usuarias contrataban TI de forma reactiva y atomizada (45.1% de pagos menores a S/ 500). El nuevo Opex del portafolio (S/ 462 490/año) cuenta con un ratio de cobertura de **5.09×**, confirmando que el PETI no encarece a la organización, sino que reordena y profesionaliza el gasto existente.
+6. **La Presupuestación Probabilística Protege ante la Ilusión del Costo Fijo:** Mediante la simulación Monte Carlo (10 000 iteraciones), se superó la falacia del TCO determinístico. Para blindar al Directorio de las desviaciones presupuestales del pasado (+47.5%), se determinó un techo de autorización P90 de S/ 3 438 289, recomendando formalizar una **Reserva de Contingencia Financiera de S/ 244 839 (7.67 %)**. El diagrama de Tornado identificó que PR-09 y PR-03 concentran el **82.0 % del riesgo presupuestal**, exigiendo esquemas de contratación a suma alzada con compuertas de decisión (*Stage-Gate*).
 
 ---
 

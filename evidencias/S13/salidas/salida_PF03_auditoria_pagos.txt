@@ -1,0 +1,63 @@
+=====================================================================================
+AUDITORÍA FORENSE DE LA POBLACIÓN DE PAGOS INSTITUCIONALES (EPS AGUAS DEL SUR S.A.)
+=====================================================================================
+Total transacciones procesadas (pagos.csv): 19,281 pagos
+Desembolso total institucional del período : S/ 28,844,991.52
+Pagos en 'Servicio informático'           : 1,556 pagos (8.1 % del volumen)
+Monto total ejecutado en servicios TI     : S/ 2,354,579.60 (8.16 % del gasto empresarial)
+Promedio por comprobante informático      : S/ 1,513.23
+Mediana por comprobante informático       : S/ 588.26
+Desviación estándar de montos             : S/ 4,772.08
+Comprobante máximo emitido                : S/ 149,893.47
+
+--- DISTRIBUCIÓN MENSUAL DEL GASTO EN SERVICIOS INFORMÁTICOS (2025) ---
+  Mes 01 (Ene): 135 pagos | S/ 172,173.49
+  Mes 02 (Feb): 131 pagos | S/ 178,666.19
+  Mes 03 (Mar): 123 pagos | S/ 165,451.86
+  Mes 04 (Abr): 134 pagos | S/ 169,665.09
+  Mes 05 (May): 128 pagos | S/ 226,842.68
+  Mes 06 (Jun): 126 pagos | S/ 255,850.36
+  Mes 07 (Jul): 134 pagos | S/ 191,871.90
+  Mes 08 (Ago): 125 pagos | S/ 168,721.83
+  Mes 09 (Set): 115 pagos | S/ 131,710.97
+  Mes 10 (Oct): 135 pagos | S/ 190,397.02
+  Mes 11 (Nov): 135 pagos | S/ 165,880.22
+  Mes 12 (Dic): 135 pagos | S/ 337,347.99
+
+→ Promedio mensual desembolsado en TI: S/ 196,214.97 / mes
+→ Mes con mayor desembolso: Mes 12 (Dic) con S/ 337,347.99 (Cierre de ejercicio presupuestal)
+
+--- CONCENTRACIÓN POR PROVEEDORES DE TI (156 proveedores únicos) ---
+                  count        sum  pct_acumulado
+codigo_proveedor                                 
+PRV0126              10  161221.36       6.847140
+PRV0010              11   76454.53      10.094196
+PRV0026               7   57262.82      12.526173
+PRV0109              14   48051.16      14.566926
+PRV0115              15   40215.37      16.274890
+PRV0110              13   37892.49      17.884200
+PRV0100              16   36439.61      19.431806
+PRV0071              10   34659.46      20.903808
+PRV0069               9   33137.38      22.311167
+PRV0017              12   32382.86      23.686481
+
+→ Los 10 primeros proveedores concentran el 23.7 % del gasto en servicios informáticos.
+→ Proveedor de mayor facturación: PRV0126 con S/ 161,221.36 (6.8 %)
+
+--- ANÁLISIS DE FRAGMENTACIÓN Y GOBERNANZA PRESUPUESTAL ---
+Pagos <= S/ 500 (compras menores/directas) : 702 (45.1 % de transacciones)
+Presupuesto ejecutado formal de TI (presupuesto_ti.csv): S/ 863,629.34
+Gasto real en 'Servicio informático' (pagos.csv)      : S/ 2,354,579.60
+Diferencia (Gasto de TI disperso / Shadow IT)          : S/ 1,490,950.26 (+172.6 %)
+→ Hallazgo forense: Las áreas usuarias contrataron servicios informáticos por fuera
+  de la partida centralizada de TI, evidenciando dispersión de contratos y nula gobernanza.
+
+--- VALIDACIÓN EMPÍRICA DE SOSTENIBILIDAD DEL TCO DEL PETI ---
+Costo recurrente anual proyectado por el nuevo portafolio : S/ 462,490.00 / año
+Capacidad anual histórica demostrada en pagos de TI (2025) : S/ 2,354,579.60 / año
+Margen de holgura presupuestal de la empresa               : S/ 1,892,089.60 / año
+Ratio de cobertura (Capacidad histórica / Opex PETI)      : 5.09×
+✔ Conclusión de auditoría: El portafolio del PETI no sobrecarga financieramente a la EPS;
+  más bien, centraliza y ordena el gasto que hoy se dispersa en compras reactivas.
+
+✔ Gráfico ../graficos\PF_auditoria_pagos_ti.png generado exitosamente.

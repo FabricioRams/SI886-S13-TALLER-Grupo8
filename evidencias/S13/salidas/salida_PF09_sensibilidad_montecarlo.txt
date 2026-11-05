@@ -1,0 +1,48 @@
+==========================================================================================
+SIMULACIÓN MONTE CARLO Y ANÁLISIS DE SENSIBILIDAD DEL TCO (10 000 ITERACIONES)
+EPS AGUAS DEL SUR S.A. — MARGEN DE CONFIANZA FINANCIERA BAJO VAL IT / COBIT 2019
+==========================================================================================
+TCO Base Determinístico del Portafolio : S/ 3,193,450.00
+TCO Medio Simulado (Valor Esperado)     : S/ 3,191,118.99
+Desviación Estándar del Portafolio     : S/ 191,589.03
+Coeficiente de Variación (CV)          : 6.00 %
+Probabilidad de Superar Presupuesto Base: 49.3 %
+
+--- DISTRIBUCIÓN POR PERCENTILES DEL COMPROMISO QUINQUENAL ---
+  P05 (Escenario Altamente Optimista)   : S/ 2,877,276.66 (-9.9 %)
+  P10 (Escenario Optimista)             : S/ 2,941,713.76 (-7.9 %)
+  P50 (Mediana / Escenario Central)     : S/ 3,190,160.81 (-0.1 %)
+  P75 (Escenario Conservador)           : S/ 3,325,096.06 (+4.1 %)
+  P90 (Techo de Autorización / 90% Conf): S/ 3,438,289.40 (+7.7 %)
+  P95 (Valor en Riesgo - VaR 95%)       : S/ 3,513,044.16 (+10.0 %)
+  P99 (Escenario de Estrés Máximo)      : S/ 3,626,766.54 (+13.6 %)
+
+--- RECOMENDACIÓN DE GOBERNANZA PRESUPUESTAL (RESERVA DE CONTINGENCIA) ---
+Reserva de Contingencia Financiera sugerida (P90 - Base): S/ 244,839.40
+Porcentaje de amortiguamiento presupuestal requerido     : 7.67 % del TCO base
+→ Dictamen Financiero: Para blindar al Directorio ante desvíos históricos (+47.5%),
+  se recomienda aprobar un techo quinquenal de S/ 3,438,289 con una reserva blindada de S/ 244,839.
+
+--- TOP PROYECTOS GENERADORES DE RIESGO FINANCIERO (ANÁLISIS DE TORNADO) ---
+codigo                                                    nombre    tco_5 incertidumbre  contribucion_riesgo_pct
+ PR-09       Continuidad de infraestructura y respaldo inmutable 780500.0         ±50 %                66.902486
+ PR-03                          Capa de integración de servicios 459200.0         ±40 %                15.112230
+ PR-04   Rediseño y adopción del canal digital B2B / Recaudación 425000.0         ±35 %                 9.671286
+ PR-01                                 Gobierno del dato maestro 290250.0         ±30 %                 3.372470
+ PR-05   Consulta de estado de reclamo y trámite en autoservicio 179500.0         ±30 %                 1.289939
+ PR-13         Comité de gobierno de TI y transformación digital 135500.0         ±30 %                 0.749580
+ PR-08                                    Mesa de servicio de TI 161200.0         ±25 %                 0.720567
+ PR-06              Planificación de rutas de cuadrillas y SCADA 154000.0         ±25 %                 0.648891
+ PR-15       Autoservicio de trabajadores (boletas y vacaciones) 144000.0         ±25 %                 0.559147
+ PR-10 Renovación de la plataforma comercial y operacional (ERP) 129000.0         ±25 %                 0.457359
+ PR-12     Gestión del conocimiento y de la configuración (CMDB)  85400.0         ±25 %                 0.201410
+ PR-14  Instrumentación de monitoreo y disponibilidad de enlaces  85400.0         ±20 %                 0.130927
+ PR-02                    Registro de actividades de tratamiento  75000.0         ±20 %                 0.099397
+ PR-07                Tablero de gestión comercial y operacional  66500.0         ±20 %                 0.079032
+ PR-11       Programa de cumplimiento de datos personales (LPDP)  23000.0         ±15 %                 0.005280
+
+→ Concentración de volatilidad: PR-09 y PR-03 explican el 82.0 %
+  de todo el riesgo presupuestal del portafolio quinquenal.
+
+✔ Gráfico ../graficos\PF_sensibilidad_montecarlo.png generado exitosamente.
+✔ Archivo PF09_sensibilidad_proyectos.csv exportado con éxito.
