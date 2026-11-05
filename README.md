@@ -40,6 +40,35 @@ Noviembre 2026
 
 ---
 
+---
+
+## 📑 Tabla de Contenidos
+
+- [1. Información General y Objetivos](#1-información-general-y-objetivos-del-taller)
+  - [1.1 Objetivos de la Práctica](#11-objetivos-de-la-práctica)
+  - [1.2 Tecnologías y Herramientas](#12-tecnologías-y-herramientas-aplicadas)
+  - [1.3 Seguridad y Confidencialidad](#13-seguridad-y-confidencialidad)
+- [2. Procedimiento Metodológico](#2-procedimiento-metodológico-y-resultados-obtenidos-paso-a-paso)
+  - [Paso A — Admisión](#paso-a--consolidación-y-control-de-admisión-de-proyectos-candidatos)
+  - [Paso B — TCO](#paso-b--estimación-del-costo-total-de-propiedad-tco-a-5-años-y-gasto-operativo)
+  - [Paso C — Alternativas](#paso-c--casos-de-negocio-evaluación-de-alternativas-y-análisis-histórico)
+  - [Paso D — Balance](#paso-d--balance-estratégico-del-portafolio-operar--crecer--transformar)
+  - [Paso E — Dependencias](#paso-e--mapa-de-dependencias-arquitecturales-y-secuenciamiento-topológico)
+  - [Paso F — Sección 7.1 PETI](#paso-f--redacción-de-la-sección-71-del-peti)
+  - [Paso G — Validación](#paso-g--validación-y-corrección-tres-comprobaciones-metodológicas)
+  - [Paso H — Versionamiento](#paso-h--registro-de-evidencia-versionamiento-y-transferencia-de-riesgo)
+- [3. Lista de Comprobación](#3-lista-de-comprobación-del-taller-resultados-y-evidencias)
+- [4. Conclusiones](#4-conclusiones)
+- [5. Referencias](#5-referencias-bibliográficas)
+- [6. Estructura del Repositorio](#6-estructura-del-repositorio)
+- [7. Reproducibilidad](#7-reproducibilidad)
+- [8. Glosario de Siglas](#8-glosario-de-siglas)
+
+---
+
+
+
+
 ## 1. Información General y Objetivos del Taller
 
 ### 1.1 Objetivos de la Práctica
@@ -624,3 +653,61 @@ A continuación, se presenta la verificación detallada de los resultados espera
 - **Gartner Inc. (2023).** *IT Budgeting and Benchmarking: Run, Grow and Transform Metrics in Public Utilities*. Gartner Research.
 - **Project Management Institute - PMI (2021).** *The Standard for Portfolio Management – Fourth Edition*. Project Management Institute, Inc.
 - **NetworkX Developers (2024).** *NetworkX: Network Analysis in Python — Directed Acyclic Graphs and Topological Sorting*. https://networkx.org/
+
+
+
+## 6. Estructura del Repositorio
+SI886-S13-TALLER-Grupo8/
+├── 07_portafolio/ # Sección 7.1 del PETI
+│ ├── 7.1_portafolio_proyectos.md # Documento normativo completo
+│ ├── PF01_consolidacion.py
+│ ├── PF01_portafolio_candidatos.csv
+│ ├── PF02_tco.py
+│ ├── PF02_tco.csv
+│ ├── PF03_fichas/ # 15 fichas × 20 campos
+│ ├── PF04_alternativas.py
+│ ├── PF04_alternativas.csv
+│ ├── PF05_balance.py
+│ └── PF06_dependencias.py
+├── graficos/ # Figuras (PNG)
+├── evidencias/S13/
+│ ├── salidas/ # Logs .txt
+│ └── capturas/
+├── Recursos/ # Datos crudos del caso
+└── README.md
+
+
+## 7. Reproducibilidad
+
+### Requisitos
+- Python 3.11+ (probado con 3.14)
+- `pandas`, `numpy`, `matplotlib`, `networkx`
+
+### Instalación
+
+```bash
+git clone https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8.git
+cd SI886-S13-TALLER-Grupo8
+pip install -r requirements.txt
+
+
+
+## 8. Glosario de Siglas
+
+| Sigla | Significado |
+|---|---|
+| **APO05** | Manage Portfolio (COBIT 2019) |
+| **CapEx** | Capital Expenditure — inversión de capital |
+| **COBIT** | Control Objectives for Information and Related Technologies |
+| **DAG** | Directed Acyclic Graph — grafo dirigido acíclico |
+| **EDM02** | Ensured Benefits Delivery (COBIT 2019) |
+| **ERP** | Enterprise Resource Planning |
+| **FODA** | Fortalezas, Oportunidades, Debilidades, Amenazas |
+| **LPDP** | Ley de Protección de Datos Personales (N.° 29733) |
+| **OD** | Objetivo Estratégico de TI (OD-01 a OD-06) |
+| **OpEx** | Operational Expenditure — gasto operativo recurrente |
+| **PETI** | Plan Estratégico de Tecnologías de Información |
+| **SCADA** | Supervisory Control and Data Acquisition |
+| **SUNASS** | Superintendencia Nacional de Servicios de Saneamiento |
+| **TCO** | Total Cost of Ownership — Costo Total de Propiedad |
+| **Val IT** | Value from IT Investments (ISACA) |
