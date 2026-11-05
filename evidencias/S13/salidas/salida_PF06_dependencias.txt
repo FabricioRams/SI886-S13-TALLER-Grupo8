@@ -1,0 +1,12 @@
+﻿=== ORDEN TOPOLÓGICO (SECUENCIA OBLIGADA DE EJECUCIÓN) ===
+PR-01 → PR-02 → PR-03 → PR-08 → PR-10 → PR-11 → PR-12 → PR-13 → PR-15 → PR-06 → PR-04 → PR-05 → PR-07 → PR-09 → PR-14
+
+=== PROYECTOS HABILITADORES (MAYOR IMPACTO ESTRUCTURAL) ===
+  PR-03 (Capa de integración de servicios): habilita 4 proyecto(s) → Prioridad estructural absoluta
+  PR-01 (Gobierno del dato maestro): habilita 3 proyecto(s) → Prioridad estructural absoluta
+  PR-08 (Mesa de servicio de TI): habilita 1 proyecto(s) → Prioridad estructural absoluta
+
+=== PROYECTOS DE INICIO INMEDIATO (SIN DEPENDENCIAS PREVIAS) ===
+  PR-01, PR-02, PR-03, PR-08, PR-10, PR-11, PR-12, PR-13, PR-15
+  Total: 9 proyectos pueden arrancar en Fase 1 sin esperar entregables externos.
+✔ Gráfico ../graficos/PF_dependencias.png generado con éxito.

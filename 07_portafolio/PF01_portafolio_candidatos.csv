@@ -1,0 +1,16 @@
+codigo,nombre,fuente,seccion_origen,objetivo,categoria
+PR-01,Gobierno del dato maestro,Brecha de arquitectura,Sección 5.4.2 PT-01,"OD-02, OD-03",Transformar
+PR-02,Registro de actividades de tratamiento,Obligación normativa,Sección 4.1.5,OD-05,Operar
+PR-03,Capa de integración de servicios,Brecha de arquitectura,Sección 5.4.2 PT-02,"OD-01, OD-03",Transformar
+PR-04,Rediseño y adopción del canal digital B2B / Recaudación,Brecha de servicio digital,Sección 6.1.7 S-01,OD-01,Crecer
+PR-05,Consulta de estado de reclamo y trámite en autoservicio,Brecha de servicio digital,Sección 6.1.7 S-02,OD-01,Crecer
+PR-06,Planificación de rutas de cuadrillas y SCADA,Estrategia FODA,Sección 3.5 E-02,OD-03,Crecer
+PR-07,Tablero de gestión comercial y operacional,Brecha de arquitectura,Sección 5.4.2 PT-05,OD-02,Crecer
+PR-08,Mesa de servicio de TI,Brecha de capacidad,Sección 4.3.5 DSS02,OD-04,Operar
+PR-09,Continuidad de infraestructura y respaldo inmutable,Brecha de capacidad,Sección 4.3.5 DSS04,OD-04,Operar
+PR-10,Renovación de la plataforma comercial y operacional (ERP),Estrategia FODA,Sección 3.5 E-04,OD-04,Operar
+PR-11,Programa de cumplimiento de datos personales (LPDP),Obligación normativa,Sección 4.1.5,OD-05,Operar
+PR-12,Gestión del conocimiento y de la configuración (CMDB),Estrategia FODA,Sección 3.5 E-07,OD-06,Operar
+PR-13,Comité de gobierno de TI y transformación digital,Brecha de capacidad,Sección 4.3.5 EDM01,"OD-02, OD-04",Operar
+PR-14,Instrumentación de monitoreo y disponibilidad de enlaces,Brecha de línea base,Sección 6.1.5,OD-04,Operar
+PR-15,Autoservicio de trabajadores (boletas y vacaciones),Brecha de servicio digital,"Sección 6.1.7 S-06, S-07",OD-01,Crecer

@@ -1,0 +1,7 @@
+proyecto,alternativa,inv_inicial,costo_anual,beneficio_anual,descripcion,costo_5,beneficio_5,neto_5,retorno
+PR-09,A. No hacer nada,0,0,-180000,"La plataforma pierde soporte en la fecha anunciada por el fabricante: sin parches de seguridad, riesgo de interrupción y de incumplimiento normativo ante SUNASS. Costo estimado de una interrupción prolongada en recaudación y catastro.",0,-900000,-900000,
+PR-09,B. Migrar a la versión soportada del mismo proveedor,145000,84000,60000,Menor riesgo de migración de datos; mantiene la dependencia del proveedor actual y su arquitectura monolítica.,565000,300000,-265000,-46.9
+PR-09,C. Reemplazar por otra solución (Nube híbrida e inmutable),240000,96000,120000,Mayor costo inicial y migración; elimina dependencia de proveedor único y habilita respaldo inmutable ante ransomware.,720000,600000,-120000,-16.7
+PR-04,A. No hacer nada,0,0,-95000,"Se mantienen colas en ventanillas físicas y cobros descentralizados: costo operativo en cajeros, arqueos y riesgo de mora.",0,-475000,-475000,
+PR-04,B. Rediseño web/móvil con pasarela y arquitectura API,92000,57600,145000,Aprovecha el desarrollo existente; se acopla a la capa de integración (PR-03) permitiendo pago digital 24/7 sin colas.,380000,725000,345000,90.8
+PR-04,C. Nueva plataforma comercial paquetizada de terceros,210000,84000,175000,Mayor capacidad y menor deuda técnica inmediata; mayor costo de licencia y tiempo de implantación superior a 12 meses.,630000,875000,245000,38.9

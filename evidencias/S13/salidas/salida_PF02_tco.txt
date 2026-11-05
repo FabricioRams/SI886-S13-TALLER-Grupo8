@@ -1,0 +1,35 @@
+﻿=== COSTO TOTAL DE PROPIEDAD A 5 AÑOS ===
+codigo  inv_inicial  costo_unico  costo_anual    tco_5  pct_operativo incertidumbre
+ PR-09       145000       230000     110100.0 780500.0           70.5         ±50 %
+ PR-03        78000       101000      71640.0 459200.0           78.0         ±40 %
+ PR-04        92000       128000      59400.0 425000.0           69.9         ±35 %
+ PR-01        55000        81000      41850.0 290250.0           72.1         ±30 %
+ PR-05        34000        52000      25500.0 179500.0           71.0         ±30 %
+ PR-08        42000        46000      23040.0 161200.0           71.5         ±25 %
+ PR-06        28000        43000      22200.0 154000.0           72.1         ±25 %
+ PR-15        24000        36000      21600.0 144000.0           75.0         ±25 %
+ PR-13        26000        41000      18900.0 135500.0           69.7         ±30 %
+ PR-10        22000        28000      20200.0 129000.0           78.3         ±25 %
+ PR-12        19000        26000      11880.0  85400.0           69.6         ±25 %
+ PR-14        14000        20000      13080.0  85400.0           76.6         ±20 %
+ PR-02        18000        21000      10800.0  75000.0           72.0         ±20 %
+ PR-07        15000        20000       9300.0  66500.0           69.9         ±20 %
+ PR-11         6000         8000       3000.0  23000.0           65.2         ±15 %
+
+Inversión inicial total : S/ 618,000
+Costo único total       : S/ 881,000
+Costo operativo a 5 años: S/ 2,312,450
+TCO total a 5 años      : S/ 3,193,450
+Factor TCO/inversión    : 5.17×
+
+→ El TCO es 5.2 veces la inversión inicial. Presentar solo la inversión
+  inicial ante la gerencia subestima el compromiso en S/ 2,575,450.
+
+=== PROYECTOS CON MAYOR PROPORCIÓN DE COSTO OPERATIVO ===
+codigo    tco_5  pct_operativo
+ PR-10 129000.0           78.3
+ PR-03 459200.0           78.0
+ PR-14  85400.0           76.6
+ PR-15 144000.0           75.0
+ PR-01 290250.0           72.1
+→ Estos comprometen el presupuesto recurrente durante años: exigen mayor escrutinio.

@@ -1,0 +1,4 @@
+﻿✔ Gráfico ../graficos/PF_tco_componentes.png generado.
+✔ Gráfico ../graficos/PF_alternativas_analisis.png generado.
+✔ Gráfico ../graficos/PF_inversiones_historicas.png generado.
+✔ Gráfico ../graficos/PF_presupuesto_balance.png generado.
