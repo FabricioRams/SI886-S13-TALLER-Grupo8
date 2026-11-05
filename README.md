@@ -24,11 +24,8 @@ EMPRESA 08 — **EPS AGUAS DEL SUR S.A.**
 
 **INTEGRANTE / EQUIPO DE TRABAJO (GRUPO 08):**  
 - **Ramos Fabricio** · Código Estudiantil: 2023076798  
-  *Responsabilidad:* Consolidación de iniciativas candidatas, formulación matricial base del TCO y análisis de dependencias topológicas en NetworkX.
 - **Colque Rodrigo** · Código Estudiantil: 2023077078  
-  *Responsabilidad:* Auditoría forense transaccional de pagos (`pagos.csv`), análisis estocástico de riesgo por Monte Carlo, modelo multicriterio de priorización y suite automatizada de validación (`run_all.py`).
 - **Pacompía Abel** · Código Estudiantil: 2023076797  
-  *Responsabilidad:* Formulación de casos de negocio y alternativas Val IT, balance estratégico de gasto y redacción normativa del marco de gobernanza PETI.
 
 **ENLACE AL REPOSITORIO DE GITHUB:**  
 [https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8](https://github.com/FabricioRams/SI886-S13-TALLER-Grupo8)
@@ -42,7 +39,7 @@ Noviembre 2026
 
 ---
 
-## 📑 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [1. Información General y Objetivos](#1-información-general-y-objetivos-del-taller)
   - [1.1 Objetivos de la Práctica](#11-objetivos-de-la-práctica)
